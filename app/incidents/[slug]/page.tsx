@@ -14,6 +14,7 @@ const IncidentPage = async ({ params }: { params: any }) => {
     up: "Online",
     partial: "Partial Outage",
     down: "Down",
+    "under-maintenance": "Maintenance",
   };
   return (
     <main className="flex flex-1 flex-col gap-8 p-4 md:p-8 lg:p-12">

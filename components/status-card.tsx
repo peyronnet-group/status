@@ -19,11 +19,13 @@ export const StatusCard: React.FC<StatusCardProps> = ({
     up: "bg-green-500 text-green-500",
     partial: "bg-yellow-500 text-yellow-500",
     down: "bg-red-500 text-red-500",
+    "under-maintenance": "bg-slate-500 text-slate-500",
   };
   const statusNames: Record<StatusCardProps["status"], string> = {
     up: "Online",
     partial: "Partial Outage",
     down: "Down",
+    "under-maintenance": "Maintenance",
   };
 
   // Get the correct color classes based on the passed color prop

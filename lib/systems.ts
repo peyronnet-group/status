@@ -5,7 +5,7 @@ export interface System {
   id: string;
 }
 
-export type Status = "up" | "partial" | "down";
+export type Status = "up" | "partial" | "under-maintenance" | "down";
 
 export const LeoCorpSystems: System[] = [
   {
@@ -22,7 +22,7 @@ export const LeoCorpSystems: System[] = [
     description: "Our automated update system is working as expected.",
   },
   {
-    id: "gavilya",
+    id: "gavilya-services",
     name: "Gavilya Services",
     status: "up",
     description: "All Gavilya services are working as expected.",
