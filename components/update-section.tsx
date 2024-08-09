@@ -1,6 +1,7 @@
 import { ClockIcon } from "lucide-react";
 import { Separator } from "./ui/separator";
 import { Badge } from "./ui/badge";
+import { MDXRemote } from "next-mdx-remote/rsc";
 
 interface UpdateProps {
   title: string;
@@ -24,7 +25,9 @@ export default function UpdateSection(props: UpdateProps) {
           timeStyle: "long",
         })}
       </div>
-      <p>{props.description}</p>
+      <p className="prose max-w-none">
+        <MDXRemote source={props.description} />
+      </p>
     </div>
   );
 }
