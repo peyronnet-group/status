@@ -1,5 +1,5 @@
 import { StatusCard } from "@/components/status-card";
-import Image from "next/image";
+import { LeoCorpSystems, SynapsySystems } from "@/lib/systems";
 
 export default function Home() {
   return (
@@ -8,36 +8,27 @@ export default function Home() {
         <div>
           <h2 className="text-2xl font-bold">Léo Corporation</h2>
           <div className="grid gap-6 mt-4">
-            <StatusCard
-              title="Web Experiences"
-              status="up"
-              message="Our web applications are running smoothly and serving customers without any issues."
-            />
-            <StatusCard
-              title="Update System"
-              status="up"
-              message="Our automated update system is working as expected."
-            />
-            <StatusCard
-              title="Gavilya Services"
-              status="up"
-              message="All Gavilya services are working as expected."
-            />
+            {LeoCorpSystems.map((system, i) => (
+              <StatusCard
+                key={i}
+                title={system.name}
+                status={system.status}
+                message={system.description}
+              />
+            ))}
           </div>
         </div>
         <div>
           <h2 className="text-2xl font-bold">Synapsy</h2>
           <div className="grid gap-6 mt-4">
-            <StatusCard
-              title="Write"
-              status="up"
-              message="Our writing platform is operating normally, allowing users to create and publish content without any issues."
-            />
-            <StatusCard
-              title="Genidoc"
-              status="up"
-              message="Genidoc is operating normally."
-            />
+            {SynapsySystems.map((system, i) => (
+              <StatusCard
+                key={i}
+                title={system.name}
+                status={system.status}
+                message={system.description}
+              />
+            ))}
           </div>
         </div>
         <div>
