@@ -10,7 +10,7 @@ interface UpdateProps {
 }
 export default function UpdateSection(props: UpdateProps) {
   return (
-    <div>
+    <div className="grid gap-2">
       <Separator className="mb-2" />
       <div className="flex items-center gap-2 text-sm text-muted-foreground">
         <Badge
@@ -25,7 +25,7 @@ export default function UpdateSection(props: UpdateProps) {
           timeStyle: "long",
         })}
       </div>
-      <p className="prose max-w-none">
+      <p className="prose max-w-none prose-sm text-black">
         <MDXRemote source={props.description} />
       </p>
     </div>

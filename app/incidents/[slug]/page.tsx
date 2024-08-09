@@ -29,7 +29,7 @@ const IncidentPage = async ({ params }: { params: any }) => {
             {data.title ?? "Incident Details"}
           </h1>
         </div>
-        <div className="grid gap-4 rounded-lg border bg-background p-4 md:p-6">
+        <div className="grid gap-2 rounded-lg border bg-background p-4 md:p-6">
           <div className="grid gap-2">
             <div className="flex items-center gap-2">
               <Badge
@@ -60,7 +60,7 @@ const IncidentPage = async ({ params }: { params: any }) => {
             </h2>
           </div>
           <Separator />
-          <div className="grid gap-4 text-sm leading-loose">
+          <div className="grid gap-2 text-sm leading-loose">
             <MDXRemote components={{ UpdateSection }} source={content} />
           </div>
         </div>
