@@ -1,9 +1,10 @@
+import { Status } from "@/lib/systems";
 import React from "react";
 
 // Define prop types for the StatusCard component
 interface StatusCardProps {
   title: string;
-  status: "up" | "partial" | "down";
+  status: Status;
   message: string;
 }
 
