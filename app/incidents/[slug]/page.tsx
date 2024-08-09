@@ -2,6 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import UpdateSection from "@/components/update-section";
+import { parseAllIncidents } from "@/lib/incidentUtils";
 import { getIncidentContent } from "@/lib/mdxUtils";
 import { getNameFromId } from "@/lib/systems";
 import { ArrowLeftIcon, ClockIcon } from "lucide-react";
@@ -107,3 +108,11 @@ const IncidentPage = async ({ params }: { params: any }) => {
 };
 
 export default IncidentPage;
+
+export async function generateStaticParams() {
+  const incidents = await parseAllIncidents();
+
+  return incidents.map((incident) => ({
+    slug: incident.id,
+  }));
+}
