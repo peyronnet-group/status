@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-const getMdxContent = (filePath: string) => {
+export const getMdxContent = (filePath: string) => {
   const source = fs.readFileSync(filePath, "utf8");
   const { content, data } = matter(source);
   return { content, data };

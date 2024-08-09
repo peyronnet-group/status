@@ -1,7 +1,9 @@
+import fsp from "fs/promises";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { Incident } from "./incident";
+import { getMdxContent } from "./mdxUtils";
 
 const incidentDirectory = path.join(process.cwd(), "Incident");
 
@@ -28,4 +30,31 @@ export async function getIncidentData(): Promise<Incident[]> {
   }
 
   return incidents;
+}
+
+export async function parseAllIncidents(): Promise<Incident[]> {
+  const INCIDENTS_FOLDER = path.join(process.cwd(), "app", "incidents");
+  const incidentFiles = await fsp.readdir(INCIDENTS_FOLDER);
+
+  const incidents: (Incident | undefined)[] = await Promise.all(
+    incidentFiles.map(async (file) => {
+      const slug = path.basename(file, ".mdx");
+      if (slug === "[slug]") return;
+      const postFile = fs.readFileSync(
+        `${INCIDENTS_FOLDER}/${slug}.mdx`,
+        "utf-8"
+      );
+      const mdxContent = matter(postFile);
+      return {
+        title: mdxContent.data.title,
+        id: slug,
+        services: mdxContent.data.services,
+        date: mdxContent.data.date,
+        status: mdxContent.data.status,
+        isOpen: mdxContent.data.isOpen,
+        content: mdxContent.content,
+      };
+    })
+  );
+  return incidents.filter((item): item is Incident => item !== undefined);
 }
