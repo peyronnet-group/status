@@ -26,7 +26,7 @@ const IncidentPage = async ({ params }: { params: any }) => {
             </Button>
           </Link>
           <h1 className="flex-1 shrink-0 whitespace-nowrap text-2xl font-semibold tracking-tight sm:text-3xl">
-            Incident Details
+            {data.title ?? "Incident Details"}
           </h1>
         </div>
         <div className="grid gap-4 rounded-lg border bg-background p-4 md:p-6">
