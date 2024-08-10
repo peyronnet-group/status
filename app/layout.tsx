@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`min-h-screen grid grid-rows-[1fr,auto] ${inter.className}`}
+        className={`min-h-screen grid grid-rows-[auto,1fr,auto] ${inter.className}`}
       >
         <header className="p-2 sticky top-0 w-full border-b bg-white/20 backdrop-blur-sm backdrop-saturate-150">
           <div className="flex justify-center">
