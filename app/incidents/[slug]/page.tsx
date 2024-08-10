@@ -27,7 +27,7 @@ const IncidentPage = async ({ params }: { params: any }) => {
               <span className="sr-only">Back</span>
             </Button>
           </Link>
-          <h1 className="flex-1 shrink-0 whitespace-nowrap text-2xl font-semibold tracking-tight sm:text-3xl">
+          <h1 className="flex-1 shrink-0 text-2xl font-semibold tracking-tight sm:text-3xl">
             {data.title ?? "Incident Details"}
           </h1>
         </div>

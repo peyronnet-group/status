@@ -8,7 +8,7 @@ interface IncidentCardProps {
 
 export default function IncidentCard(props: IncidentCardProps) {
   return (
-    <div className="grid grid-cols-[1fr,auto] gap-4 rounded-lg border bg-background p-4 md:p-6">
+    <div className="grid sm:grid-cols-[1fr,auto] gap-4 rounded-lg border bg-background p-4 md:p-6">
       <h2 className="text-lg font-semibold">{props.incident.title}</h2>
       <div className="flex items-center gap-2 text-sm text-muted-foreground">
         <ClockIcon className="h-4 w-4" />
@@ -20,7 +20,7 @@ export default function IncidentCard(props: IncidentCardProps) {
         </p>
         <Badge
           variant="outline"
-          className="rounded-full px-3 py-1 text-sm font-medium"
+          className="rounded-full px-3 py-1 text-sm font-medium sm:block hidden"
         >
           {props.incident.isOpen ? "Active" : "Resolved"}
         </Badge>
