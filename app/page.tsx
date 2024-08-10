@@ -64,7 +64,11 @@ export default async function Home() {
           <h2 className="text-2xl font-bold">Synapsy</h2>
           <div className="grid gap-6 mt-4">
             {SynapsySystems.map((system, i) => (
-              <StatusCard key={i} title={system.name} status={system.status}>
+              <StatusCard
+                key={i}
+                title={system.name}
+                status={getSystemStatus(openedIncidents, system.id)}
+              >
                 {getSystemChildren(system.id, system.description)}
               </StatusCard>
             ))}
@@ -74,7 +78,11 @@ export default async function Home() {
           <h2 className="text-2xl font-bold">Peyronnet</h2>
           <div className="grid gap-6 mt-4">
             {PeyronnetSystems.map((system, i) => (
-              <StatusCard key={i} title={system.name} status={system.status}>
+              <StatusCard
+                key={i}
+                title={system.name}
+                status={getSystemStatus(openedIncidents, system.id)}
+              >
                 {getSystemChildren(system.id, system.description)}
               </StatusCard>
             ))}
