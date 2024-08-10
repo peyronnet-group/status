@@ -58,7 +58,7 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                mdxFiles = getMdxFiles("../app/incidents");
+                mdxFiles = getMdxFiles("./app/incidents");
                 if (mdxFiles.length === 0) {
                     console.log("No MDX files found in app/incidents folder.");
                     return [2 /*return*/];

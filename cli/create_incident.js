@@ -126,7 +126,7 @@ var getUserInput = function () { return __awaiter(void 0, void 0, void 0, functi
 }); };
 var createMdxFile = function (title, description, systems, status) {
     var dateStr = new Date().toISOString().split("T")[0];
-    var filename = path.join("../app/incidents", dateStr + "_" + title.replace(/ /g, "-").toLowerCase() + ".mdx");
+    var filename = path.join("./app/incidents", dateStr + "_" + title.replace(/ /g, "-").toLowerCase() + ".mdx");
     var yamlFrontmatter = "---\ntitle: " + title + "\ndate: \"" + new Date().toISOString() + "\"\nstatus: " + status + "\nservices:\n  - " + systems.join("\n  - ") + "\nisOpen: true\n---\n\n" + description + "\n";
     fs.mkdirSync(path.dirname(filename), { recursive: true });
     fs.writeFileSync(filename, yamlFrontmatter);

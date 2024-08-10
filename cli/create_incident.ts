@@ -81,7 +81,7 @@ const createMdxFile = (
 ) => {
   const dateStr = new Date().toISOString().split("T")[0];
   const filename = path.join(
-    "../app/incidents",
+    "./app/incidents",
     `${dateStr}_${title.replace(/ /g, "-").toLowerCase()}.mdx`
   );
 

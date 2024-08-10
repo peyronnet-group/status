@@ -29,7 +29,7 @@ const appendUpdateSection = (
 };
 
 const main = async () => {
-  const mdxFiles = getMdxFiles("../app/incidents");
+  const mdxFiles = getMdxFiles("./app/incidents");
   if (mdxFiles.length === 0) {
     console.log("No MDX files found in app/incidents folder.");
     return;
