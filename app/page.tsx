@@ -44,7 +44,7 @@ export default async function Home() {
   }
 
   return (
-    <div className="w-full max-w-4xl px-2 mx-auto py-12 md:py-16">
+    <div>
       <div className="space-y-8">
         <div>
           <h2 className="text-2xl font-bold">Léo Corporation</h2>

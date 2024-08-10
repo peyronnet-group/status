@@ -14,7 +14,7 @@ const IncidentPage = async ({ params }: { params: any }) => {
   const { content, data } = getIncidentContent(params.slug);
 
   return (
-    <main className="flex flex-1 flex-col gap-8 p-4 md:p-8 lg:p-12">
+    <div className="gap-6 grid">
       <div className="grid gap-4">
         <div className="flex items-center gap-4">
           <Link href="/">
@@ -99,7 +99,7 @@ const IncidentPage = async ({ params }: { params: any }) => {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 

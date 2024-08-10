@@ -10,9 +10,9 @@ export default async function ViewIncidentsPage() {
   const incidents = await parseAllIncidents();
   const openedIncidents = incidents.filter((incident) => incident.isOpen);
   return (
-    <main className="w-full max-w-4xl px-2 mx-auto py-12 md:py-16">
+    <div>
       <Link href="/">
-        <Button variant="outline" className="h-7 space-x-2 px-2">
+        <Button variant="outline" className="h-7 space-x-2 px-2 mb-2">
           <ArrowLeftIcon className="h-4 w-4" />
           <span>Back</span>
         </Button>
@@ -43,6 +43,6 @@ export default async function ViewIncidentsPage() {
             </Link>
           ))}
       </div>
-    </main>
+    </div>
   );
 }

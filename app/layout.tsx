@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import Logo from "@/components/logo";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +24,12 @@ export default function RootLayout({
       <body
         className={`min-h-screen grid grid-rows-[1fr,auto] ${inter.className}`}
       >
-        {children}
+        <header className="p-2 sticky top-0 w-full border-b bg-white/20 backdrop-blur-sm backdrop-saturate-150">
+          <div className="flex justify-center">
+            <Logo height={48} width={180} />
+          </div>
+        </header>
+        <main className="w-full max-w-4xl px-2 mx-auto py-12">{children}</main>
         <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
           <p className="text-xs text-muted-foreground">
             &copy; {new Date().getFullYear()} Peyronnet Group. All rights
