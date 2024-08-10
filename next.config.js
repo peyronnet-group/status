@@ -12,7 +12,6 @@ const nextConfig = {
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
   output: "export",
   distDir: "docs",
-  basePath: "/status",
 };
 
 module.exports = withMDX(nextConfig);
