@@ -1,4 +1,5 @@
 import IncidentCard from "@/components/incident-card";
+import IncidentDetailsCard from "@/components/incident-details";
 import { StatusCard } from "@/components/status-card";
 import { parseAllIncidents } from "@/lib/incidentUtils";
 import Link from "next/link";
@@ -16,6 +17,13 @@ export default async function ViewIncidentsPage() {
             title="No active incidents"
             message="All our services are working as expected."
           />
+        </div>
+      )}
+      {openedIncidents.length === 0 && (
+        <div className="gap-6 grid">
+          {openedIncidents.map((incident, id) => (
+            <IncidentDetailsCard incident={incident} key={id} />
+          ))}
         </div>
       )}
       <div className="grid gap-6 mt-4"></div>
