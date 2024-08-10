@@ -2,6 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import UpdateSection from "@/components/update-section";
+import { statusNames } from "@/lib/incident";
 import { parseAllIncidents } from "@/lib/incidentUtils";
 import { getIncidentContent } from "@/lib/mdxUtils";
 import { getNameFromId } from "@/lib/systems";
@@ -11,12 +12,7 @@ import Link from "next/link";
 
 const IncidentPage = async ({ params }: { params: any }) => {
   const { content, data } = getIncidentContent(params.slug);
-  const statusNames: Record<string, string> = {
-    up: "Online",
-    partial: "Partial Outage",
-    down: "Down",
-    "under-maintenance": "Maintenance",
-  };
+
   return (
     <main className="flex flex-1 flex-col gap-8 p-4 md:p-8 lg:p-12">
       <div className="grid gap-4">

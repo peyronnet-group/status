@@ -9,3 +9,9 @@ export interface Incident {
   isOpen: boolean;
   content: string; // MDX content
 }
+export const statusNames: Record<string, string> = {
+  up: "Online",
+  partial: "Partial Outage",
+  down: "Down",
+  "under-maintenance": "Maintenance",
+};
