@@ -5,6 +5,13 @@ import { Button } from "@/components/ui/button";
 import { parseAllIncidents } from "@/lib/incidentUtils";
 import { ArrowLeftIcon } from "lucide-react";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Incidents",
+  description:
+    "View all active and past incidents that impacted Peyronnet Group's systems and services.",
+};
 
 export default async function ViewIncidentsPage() {
   const incidents = await parseAllIncidents();
