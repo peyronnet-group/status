@@ -8,7 +8,29 @@ import { getIncidentContent } from "@/lib/mdxUtils";
 import { getNameFromId } from "@/lib/systems";
 import { ArrowLeftIcon, ClockIcon } from "lucide-react";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import type { Metadata, ResolvingMetadata } from "next";
 import Link from "next/link";
+
+export async function generateMetadata(
+  { params }: { params: any },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const { content, data } = getIncidentContent(params.slug);
+
+  return {
+    title: data.title,
+    description: `Learn more about the incident "${
+      data.title
+    }" that occured on ${new Date(data.date).toLocaleString("en-US", {
+      dateStyle: "long",
+      timeStyle: "long",
+    })}, affecting ${(data.services as string[]).map((service, i) => {
+      return `${getNameFromId(service)}${
+        (data.services as string[]).length - 1 === i ? "" : ", "
+      }`;
+    })}.`,
+  };
+}
 
 const IncidentPage = async ({ params }: { params: any }) => {
   const { content, data } = getIncidentContent(params.slug);
