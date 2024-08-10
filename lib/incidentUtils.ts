@@ -39,7 +39,7 @@ export async function parseAllIncidents(): Promise<Incident[]> {
   const incidents: (Incident | undefined)[] = await Promise.all(
     incidentFiles.map(async (file) => {
       const slug = path.basename(file, ".mdx");
-      if (slug === "[slug]") return;
+      if (slug === "[slug]" || slug === "page.tsx") return;
       const postFile = fs.readFileSync(
         `${INCIDENTS_FOLDER}/${slug}.mdx`,
         "utf-8"
@@ -56,5 +56,11 @@ export async function parseAllIncidents(): Promise<Incident[]> {
       };
     })
   );
-  return incidents.filter((item): item is Incident => item !== undefined);
+  const filteredIncident = incidents.filter(
+    (item): item is Incident => item !== undefined
+  );
+
+  return filteredIncident.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
 }
