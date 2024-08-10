@@ -6,14 +6,14 @@ import React from "react";
 interface StatusCardProps {
   title: string;
   status: Status;
-  message: string;
+  children: any;
 }
 
 // StatusCard component
 export const StatusCard: React.FC<StatusCardProps> = ({
   title,
   status,
-  message,
+  children,
 }) => {
   // Define color styles
   const statusColors: Record<StatusCardProps["status"], string> = {
@@ -38,7 +38,7 @@ export const StatusCard: React.FC<StatusCardProps> = ({
         </div>
       </div>
       <div className="px-6 py-4">
-        <p className="text-muted-foreground">{message}</p>
+        <p className="text-muted-foreground">{children}</p>
       </div>
     </div>
   );

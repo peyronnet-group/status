@@ -1,3 +1,5 @@
+import { Incident } from "./incident";
+
 export interface System {
   name: string;
   status: Status;
@@ -65,4 +67,19 @@ export function getNameFromId(id: string): string {
     }
   }
   return id;
+}
+
+export function getSystemStatus(
+  openedIncidents: Incident[],
+  systemId: string
+): Status {
+  let statuses: Status[] = [];
+  for (let i = 0; i < openedIncidents.length; i++) {
+    if (openedIncidents[i].services.includes(systemId))
+      statuses.push(openedIncidents[i].status);
+  }
+  if (statuses.includes("down")) return "down";
+  if (statuses.includes("partial")) return "partial";
+  if (statuses.includes("under-maintenance")) return "under-maintenance";
+  return "up";
 }

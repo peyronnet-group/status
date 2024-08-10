@@ -1,8 +1,12 @@
 import IncidentCard from "@/components/incident-card";
+import IncidentDetailsCard from "@/components/incident-details";
 import { StatusCard } from "@/components/status-card";
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { Incident } from "@/lib/incident";
 import { parseAllIncidents } from "@/lib/incidentUtils";
 import {
+  getSystemStatus,
   LeoCorpSystems,
   PeyronnetSystems,
   SynapsySystems,
@@ -11,6 +15,34 @@ import Link from "next/link";
 
 export default async function Home() {
   const incidents = await parseAllIncidents();
+  const openedIncidents = incidents.filter((incident) => incident.isOpen);
+
+  function getSystemChildren(
+    systemId: string,
+    systemDefaultDescription: string
+  ) {
+    let relevantIncidents: Incident[] = [];
+    for (let i = 0; i < openedIncidents.length; i++) {
+      if (openedIncidents[i].services.includes(systemId)) {
+        relevantIncidents.push(openedIncidents[i]);
+      }
+    }
+    return relevantIncidents.length > 0 ? (
+      <div className="grid gap-6">
+        {relevantIncidents.map((incident, id) => (
+          <>
+            <IncidentDetailsCard compact incident={incident} key={id} />
+            {relevantIncidents.length - 1 !== id && (
+              <Separator className="h-1" />
+            )}
+          </>
+        ))}
+      </div>
+    ) : (
+      systemDefaultDescription
+    );
+  }
+
   return (
     <div className="w-full max-w-4xl px-2 mx-auto py-12 md:py-16">
       <div className="space-y-8">
@@ -21,9 +53,10 @@ export default async function Home() {
               <StatusCard
                 key={i}
                 title={system.name}
-                status={system.status}
-                message={system.description}
-              />
+                status={getSystemStatus(openedIncidents, system.id)}
+              >
+                {getSystemChildren(system.id, system.description)}
+              </StatusCard>
             ))}
           </div>
         </div>
@@ -31,12 +64,9 @@ export default async function Home() {
           <h2 className="text-2xl font-bold">Synapsy</h2>
           <div className="grid gap-6 mt-4">
             {SynapsySystems.map((system, i) => (
-              <StatusCard
-                key={i}
-                title={system.name}
-                status={system.status}
-                message={system.description}
-              />
+              <StatusCard key={i} title={system.name} status={system.status}>
+                {getSystemChildren(system.id, system.description)}
+              </StatusCard>
             ))}
           </div>
         </div>
@@ -44,12 +74,9 @@ export default async function Home() {
           <h2 className="text-2xl font-bold">Peyronnet</h2>
           <div className="grid gap-6 mt-4">
             {PeyronnetSystems.map((system, i) => (
-              <StatusCard
-                key={i}
-                title={system.name}
-                status={system.status}
-                message={system.description}
-              />
+              <StatusCard key={i} title={system.name} status={system.status}>
+                {getSystemChildren(system.id, system.description)}
+              </StatusCard>
             ))}
           </div>
         </div>

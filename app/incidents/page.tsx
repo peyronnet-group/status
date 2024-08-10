@@ -12,17 +12,15 @@ export default async function ViewIncidentsPage() {
       <h2 className="text-2xl font-bold">Active Incidents</h2>
       {openedIncidents.length === 0 && (
         <div className="my-4">
-          <StatusCard
-            status="up"
-            title="No active incidents"
-            message="All our services are working as expected."
-          />
+          <StatusCard status="up" title="No active incidents">
+            All our services are working as expected.
+          </StatusCard>
         </div>
       )}
-      {openedIncidents.length === 0 && (
-        <div className="gap-6 grid">
+      {openedIncidents.length > 0 && (
+        <div className="gap-6 grid mt-4">
           {openedIncidents.map((incident, id) => (
-            <IncidentDetailsCard incident={incident} key={id} />
+            <IncidentDetailsCard compact={false} incident={incident} key={id} />
           ))}
         </div>
       )}
