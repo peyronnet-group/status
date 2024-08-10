@@ -1,7 +1,9 @@
 import IncidentCard from "@/components/incident-card";
 import IncidentDetailsCard from "@/components/incident-details";
 import { StatusCard } from "@/components/status-card";
+import { Button } from "@/components/ui/button";
 import { parseAllIncidents } from "@/lib/incidentUtils";
+import { ArrowLeftIcon } from "lucide-react";
 import Link from "next/link";
 
 export default async function ViewIncidentsPage() {
@@ -9,6 +11,12 @@ export default async function ViewIncidentsPage() {
   const openedIncidents = incidents.filter((incident) => incident.isOpen);
   return (
     <main className="w-full max-w-4xl px-2 mx-auto py-12 md:py-16">
+      <Link href="/">
+        <Button variant="outline" className="h-7 space-x-2 px-2">
+          <ArrowLeftIcon className="h-4 w-4" />
+          <span>Back</span>
+        </Button>
+      </Link>
       <h2 className="text-2xl font-bold">Active Incidents</h2>
       {openedIncidents.length === 0 && (
         <div className="my-4">
