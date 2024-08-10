@@ -22,7 +22,11 @@ export default function IncidentCard(props: IncidentCardProps) {
           variant="outline"
           className="rounded-full px-3 py-1 text-sm font-medium sm:block hidden"
         >
-          {props.incident.isOpen ? "Active" : "Resolved"}
+          {props.incident.date > new Date()
+            ? "Scheduled"
+            : props.incident.isOpen
+            ? "Active"
+            : "Resolved"}
         </Badge>
       </div>
     </div>

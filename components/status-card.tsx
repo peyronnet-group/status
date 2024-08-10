@@ -43,5 +43,3 @@ export const StatusCard: React.FC<StatusCardProps> = ({
     </div>
   );
 };
-
-// Examp

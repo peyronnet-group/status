@@ -36,6 +36,13 @@ export default function IncidentDetailsCard({
               {statusNames[incident.status]}
             </Badge>
           )}
+          {new Date(incident.date) > new Date() ? (
+            <Badge className={statusColors[incident.status]} variant="outline">
+              Scheduled
+            </Badge>
+          ) : (
+            <></>
+          )}
           <div className="flex items-center gap-2 text-sm sm:flex-row flex-col text-muted-foreground">
             <ClockIcon className="h-4 w-4" />
             {new Date(incident.date).toLocaleString("en-US", {
