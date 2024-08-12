@@ -22,7 +22,7 @@
     "next-mdx-remote": "^5.0.0",
     "react": "^18",
     "react-dom": "^18",
-    "tailwind-merge": "^2.4.0",
+    "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
