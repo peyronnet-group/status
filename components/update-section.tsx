@@ -24,7 +24,9 @@ export default function UpdateSection({ title, date, children }: UpdateProps) {
           timeStyle: "long",
         })}
       </div>
-      <p className="prose max-w-none prose-sm text-black">{children}</p>
+      <p className="prose dark:prose-headings:text-slate-100 dark:prose-em:text-white dark:prose-strong:text-white dark:prose-a:text-slate-100 max-w-none prose-sm text-black dark:text-white">
+        {children}
+      </p>
     </div>
   );
 }
