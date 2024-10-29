@@ -3,38 +3,42 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build && cd docs && echo status.peyronnet.group > CNAME && echo \"\" > .nojekyll",
+    "dev": "next dev --turbopack",
+    "build": "next build && cd docs && echo status.peyronnet.group > CNAME && echo > .nojekyll",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@inquirer/prompts": "^7.0.1",
     "@mdx-js/loader": "^3.1.0",
-    "@next/mdx": "^15.0.1",
+    "@next/mdx": "15.0.1",
     "@radix-ui/react-separator": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.454.0",
-    "next": "14.2.14",
+    "next": "15.0.1",
     "next-mdx-remote": "^5.0.0",
     "next-themes": "^0.3.0",
-    "react": "^18",
-    "react-dom": "^18",
+    "react": "19.0.0-rc-69d4b800-20241021",
+    "react-dom": "19.0.0-rc-69d4b800-20241021",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.15",
     "@types/node": "^22",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "npm:types-react@19.0.0-rc.1",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
     "eslint": "^8",
     "eslint-config-next": "15.0.1",
     "postcss": "^8",
     "tailwindcss": "^3.4.14",
     "typescript": "^5"
+  },
+  "overrides": {
+    "@types/react": "npm:types-react@19.0.0-rc.1",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
   }
 }
