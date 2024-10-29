@@ -11,10 +11,8 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import type { Metadata, ResolvingMetadata } from "next";
 import Link from "next/link";
 
-export async function generateMetadata(
-  { params }: { params: any },
-  parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata(props: { params: Promise<any> }, parent: ResolvingMetadata): Promise<Metadata> {
+  const params = await props.params;
   const { content, data } = getIncidentContent(params.slug);
 
   return {
@@ -32,7 +30,8 @@ export async function generateMetadata(
   };
 }
 
-const IncidentPage = async ({ params }: { params: any }) => {
+const IncidentPage = async (props: { params: Promise<any> }) => {
+  const params = await props.params;
   const { content, data } = getIncidentContent(params.slug);
 
   return (
