@@ -30,7 +30,18 @@ export const StatusCard: React.FC<StatusCardProps> = ({
     <div className="bg-background rounded-lg border">
       <div className="flex items-center justify-between px-6 py-4 border-b">
         <div className="flex items-center gap-3">
-          <div className={`rounded-full w-3 h-3 ${colorClass.split(" ")[0]}`} />
+          <span className="relative flex">
+            <span
+              className={`rounded-full inline-flex w-3 h-3 ${
+                colorClass.split(" ")[0]
+              }`}
+            />
+            <span
+              className={`rounded-full w-3 h-3 inline-flex absolute animate-ping ${
+                colorClass.split(" ")[0]
+              }`}
+            />
+          </span>
           <h3 className="text-lg font-semibold">{title}</h3>
         </div>
         <div className={`text-sm ${colorClass.split(" ")[1]}`}>
