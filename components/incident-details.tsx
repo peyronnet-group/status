@@ -20,7 +20,7 @@ export default function IncidentDetailsCard({
   };
   return (
     <div
-      className={`grid gap-2 text-black ${
+      className={`grid gap-2 text-black dark:text-white ${
         compact ? "" : "rounded-lg border bg-background p-4 md:p-6"
       }`}
     >
