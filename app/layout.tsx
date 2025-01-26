@@ -25,9 +25,9 @@ export default function RootLayout({
     <html lang="en">
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <body
-          className={`min-h-screen grid grid-rows-[auto,1fr,auto] bg-background ${inter.className}`}
+          className={`min-h-screen grid grid-rows-[auto_1fr_auto] bg-background ${inter.className}`}
         >
-          <header className="p-2 sticky top-0 w-full border-b bg-white/20 dark:bg-slate-900/20 backdrop-blur-sm backdrop-saturate-150">
+          <header className="p-2 sticky top-0 w-full border-b bg-white/20 dark:bg-slate-900/20 backdrop-blur-xs backdrop-saturate-150">
             <div className="flex justify-center">
               <Logo height={48} width={180} />
             </div>

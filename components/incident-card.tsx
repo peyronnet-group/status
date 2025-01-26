@@ -8,7 +8,7 @@ interface IncidentCardProps {
 
 export default function IncidentCard(props: IncidentCardProps) {
   return (
-    <div className="grid sm:grid-cols-[1fr,auto] gap-4 rounded-lg border bg-background p-4 md:p-6">
+    <div className="grid sm:grid-cols-[1fr_auto] gap-4 rounded-lg border bg-background p-4 md:p-6">
       <h2 className="text-lg font-semibold">{props.incident.title}</h2>
       <div className="flex items-center gap-2 text-sm text-muted-foreground">
         <ClockIcon className="h-4 w-4" />
