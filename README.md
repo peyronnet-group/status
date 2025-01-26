@@ -41,7 +41,7 @@ To get started with the Peyronnet Group Status Page, follow these steps:
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/peyronnet-group/status.git
+   git clone https://github.com/grp-org/status.git
    cd status
    ```
 

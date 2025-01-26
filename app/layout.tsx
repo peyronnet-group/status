@@ -49,7 +49,7 @@ export default function RootLayout({
                 Privacy Policy
               </Link>
               <Link
-                href="https://github.com/peyronnet-group/"
+                href="https://github.com/grp-org/"
                 className="text-xs hover:underline underline-offset-4"
                 prefetch={false}
               >
