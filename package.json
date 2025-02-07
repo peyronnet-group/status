@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@inquirer/prompts": "^7.2.4",
+    "@inquirer/prompts": "^7.3.1",
     "@mdx-js/loader": "^3.1.0",
     "@next/mdx": "15.1.6",
     "@radix-ui/react-separator": "^1.1.2",
